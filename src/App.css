@@ -226,9 +226,23 @@
   padding-top: 20px;
   display: flex;
   align-items: center;
+  /* gap: 15px; */
+  justify-content: space-between;
+}
+.hero .container .hero_box .H-info .color .color_flex{
+  display: flex;
+  align-items: center;
   gap: 15px;
 }
-
+.hero .container .hero_box .H-info .color .price_input{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.hero .container .hero_box .H-info .color .price_input p{
+   color: rgba(0, 0, 0, 1);
+   font-size: 16px;
+}
 .hero .container .hero_box .H-info .color span {
   color: rgba(0, 0, 0, 1);
   font-size: 20px;
@@ -527,3 +541,4 @@ footer .container .footer_cards .F-cards-icon .face i{
   color:rgba(255, 255, 255, 1) ;
   font-size: 22px;
 }
+

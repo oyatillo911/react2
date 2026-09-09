@@ -1,9 +1,11 @@
 
+import { useState } from 'react'
 import './App.css'
 
 function App() {
-
-
+  const [mainImg, setMainImg] = useState("/imgs/heroMain_logo.svg");
+  const [number, setnumber] = useState(1)
+  const [price, setprice] = useState(192)
   return (
     <>
       <header>
@@ -58,21 +60,29 @@ function App() {
               <div className="H-logo">
 
                 <div className="logo_cards">
-                  <div className="heroCards">
+                  <div className="heroCards" onClick={() => {
+                    setMainImg("/imgs/heorCards.svg")
+                  }}>
                     <img src="/imgs/heorCards.svg" alt="" />
                   </div>
-                  <div className="heroCards">
+                  <div className="heroCards" onClick={() => {
+                    setMainImg("/imgs/heroCards2.svg")
+                  }}>
                     <img src="/imgs/heroCards2.svg" alt="" />
                   </div>
-                  <div className="heroCards">
+                  <div className="heroCards" onClick={() => {
+                    setMainImg("/imgs/heroCards3.svg")
+                  }}>
                     <img src="/imgs/heroCards3.svg" alt="" />
                   </div>
-                  <div className="heroCards">
+                  <div className="heroCards" onClick={() => {
+                    setMainImg("/imgs/heroCards4.svg")
+                  }}>
                     <img src="/imgs/heroCards4.svg" alt="" />
                   </div>
                 </div>
-                <div className="heroMain_cards">
-                  <img src="/imgs/heroMain_logo.svg" alt="" />
+                <div className="heroMain_cards" >
+                  <img src={mainImg} alt="" />
                 </div>
               </div>
               <div className="H-info">
@@ -90,10 +100,16 @@ function App() {
                 </div>
                 <hr />
                 <div className="color">
-                  <span>Colours:</span>
-                  <div className="color_input">
-                    <input name='group' type="radio" />
-                    <input name='group' id='input2' type="radio" />
+                  <div className="color_flex">
+                    <span>Colours:</span>
+                    <div className="color_input">
+                      <input name='group' type="radio" />
+                      <input name='group' id='input2' type="radio" />
+                    </div>
+                  </div>
+                  <div className="price_input">
+                    <span>Price:</span>
+                    <p>${price}.00</p>
                   </div>
                 </div>
                 <div className="size">
@@ -108,11 +124,19 @@ function App() {
                 </div>
                 <div className="buy_box">
                   <div className="buy_number">
-                    <button>-</button>
+                    <button onClick={() => {
+                      if (number > 1) {
+                        setnumber(number - 1)
+                        setprice(price - 192)
+                      }
+                    }}>-</button>
                     <div className="son">
-                      <span>2</span>
+                      <span>{number}</span>
                     </div>
-                    <button>+</button>
+                    <button onClick={() => {
+                      setnumber(number + 1)
+                      setprice(price + 192)
+                    }}>+</button>
                   </div>
                   <div className="buy_now">
                     <button>Buy Now</button>
@@ -192,14 +216,14 @@ function App() {
             </div>
             <div className="F-title">
               <ul>
-              <li><a href="">Privacy Policy</a></li>
-              <li><a href="">Terms Of Use</a></li>
-              <li><a href="">FAQ</a></li>
-              <li><a href="">Contact</a></li>
+                <li><a href="">Privacy Policy</a></li>
+                <li><a href="">Terms Of Use</a></li>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Contact</a></li>
               </ul>
             </div>
           </div>
-           <div className="footer_cards">
+          <div className="footer_cards">
             <div className="F-info">
               <h2>Download App</h2>
             </div>
@@ -219,19 +243,19 @@ function App() {
             </div>
             <div className="F-cards-icon">
               <div className="face">
-              <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-facebook-f"></i>
               </div>
               <div className="face">
-              <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-twitter"></i>
               </div>
               <div className="face">
-              <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-instagram"></i>
               </div>
               <div className="face">
-              <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
               </div>
             </div>
-           </div>
+          </div>
         </div>
       </footer>
     </>
